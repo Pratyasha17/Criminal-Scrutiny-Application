@@ -1,0 +1,27 @@
+{% extends 'sideindex.html' %}
+{% block common %}
+    {% load static %}
+<table align="center" class="table table-striped" style="width:10cm">
+    <tr><th colspan="6" style="color: red"><h3>Staff Details</h3></th></tr>
+   <tr>
+       <th>Idno</th>
+       <th>Photo</th>
+       <th>Username</th>
+       <th>Contact</th>
+       <th>Status</th>
+       <th>Approved</th>
+   </tr>
+    {% for x in object_list %}
+        <tr>
+            <th>{{ x.idno }}</th>
+            <th><img src="{{ x.Photo.url }}" width="100" height="100"></th>
+            <th>{{ x.Username }}</th>
+            <th>{{ x.Contact }}</th>
+            <th>{{ x.Status }}</th>
+            <th><a href="{% url 'approve' %}?id={{ x.idno }}"><img src="{% static 'images/check.png' %}" width="30" height="30"></a></th>
+        </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

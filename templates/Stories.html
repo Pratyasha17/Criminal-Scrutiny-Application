@@ -1,0 +1,63 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% load static %}
+    <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Story1
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        Monitoring personal locations with a potentially untrusted server poses privacy threats to the monitored individuals.
+        To this end, we propose a privacy-preserving location monitoring system for wireless sensor networks. In our system,
+        we design two innetwork location anonymization algorithms, namely, resource- and quality-aware algorithms,
+        that aim to enable the system to provide high quality location monitoring services for system users,
+        while preserving personal location privacy. Both algorithms rely on the well established k-anonymity privacy concept,
+        that is, a person is indistinguishable among k persons, to enable trusted sensor nodes to provide the aggregate location
+        information of monitored persons for our system. Each aggregate location is in a form of a monitored area A along with
+        the number of monitored persons residing in A, where A contains at least k persons. The resource-aware algorithm aims
+        to minimize communication and computational cost, while the quality-aware algorithm aims to maximize the accuracy of the
+        aggregate locations by minimizing their monitored areas. To utilize the aggregate location information to provide
+        location monitoring services, we use a spatial histogram approach that estimates the distribution of the monitored
+        persons based on the gathered aggregate location information. Then the estimated distribution is used to provide
+        location monitoring services through answering range queries.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Story2
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        While peer-to-peer networks are mainly used to locate unique resources across the Internet, new interesting deployment
+        scenarios are emerging. Particularly, some applications (e.g., VoIP) are proposing the creation of overlays for the
+        localization of services based on equivalent servants (e.g., voice relays).This paper explores the possible overlay
+        architectures that can badopted to provide such services, showing how an unstructured solution based on a scale-free
+        overlay topology is an effective option to deploy in this context. Consequently, we propose EQUATOR
+        (Equivalent servant locator), an unstructured overlay implementing the above mentioned operating principles, based on
+        an overlay construction algorithm that well approximates an ideal scale-free construction model.
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <a href="/all_stories/">All Stories</a>
+        </button>
+      </h2>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

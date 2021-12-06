@@ -1,0 +1,26 @@
+{% extends 'staff_menu.html' %}
+{% block common %}
+    {% load static %}
+    <br><br>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+            <table align="center" class="table table-striped" style="width: 15cm">
+              <tr><th colspan="4" style="color: red;text-align: center"><h3>Suggestion Box</h3></th></tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name of the Person</th>
+                    <th>Location</th>
+                    <th>Suggession</th>
+                </tr>
+                {% for x in object_list %}
+                    <tr>
+                    <th>{{ x.id }}</th>
+                    <th>{{ x.Name }}</th>
+                    <th>{{ x.Location }}</th>
+                    <th>{{ x.Suggession }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+</form>
+
+{% endblock %}

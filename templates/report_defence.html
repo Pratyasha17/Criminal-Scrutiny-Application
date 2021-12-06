@@ -1,0 +1,25 @@
+{% extends 'sideindex_defence.html' %}
+{% block common %}
+    {% load static %}
+    <br>
+    <table align="center" class="table table-striped" style="width: 20cm" >
+    <tr><th colspan="6" style="color: red"><h2>Reports</h2></th> </tr>
+   <tr>
+        <th>Agent Id</th>
+        <th>Case Id</th>
+        <th>Case Name</th>
+        <th>Status</th>
+
+    </tr>
+        {% for x in data %}
+        <tr>
+        <th>{{ x.agent_id }}</th>
+        <th>{{ x.CaseCreation_Agent_id }}</th>
+        <th>{{ x.CaseCreation_Agent__case_name }}</th>
+        <th>{{ x.CaseCreation_Agent__status }}</th>
+
+        </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

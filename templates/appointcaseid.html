@@ -1,0 +1,46 @@
+{% extends 'sideindex.html' %}
+{% block common %}
+    {% load static %}
+
+    <form action="/savecasedetails/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table align="center" >
+            <tr><th colspan="2" style="color: red"><h2>Appoint</h2></th> </tr>
+                <tr><th>agent id</th><th>
+                    <input type="number" value="{{ qs }}" name="agent_id" readonly></th></tr>
+                 <tr><th>case id</th><th>
+                     <select onchange="disp()" id="idno" required>
+                         <option>Select</option>
+                         {% for x in qs1 %}
+                             <option value='{"caseid":{{ x.case_id }},"casename":"{{x.case_name}}","sts":"{{ x.status }}"}'>
+                                 {{ x.case_id }}
+                              </option>
+                         {% endfor %}
+                     </select>
+                     </th></tr>
+                <tr> <th>case name</th><th><span id="s1"></span><span id="s6"></span></th></tr>
+                <tr><th>status</th><th><span id="s5"></span></th></tr>
+                <tr><th colspan="5"><button type="submit" class="btn btn-success">Assign</button></th></tr>
+                <tr><th colspan="2">
+                       {% if messages %}
+                          {% for x in messages %}
+                          <div class="alert alert-success" role="alert">
+                                        {{ x }}
+                          </div>
+                          {% endfor %}
+                       {% endif %}
+                </th> </tr>
+                </table>
+
+<script>
+    function disp()
+    {
+        var val = document.getElementById("idno").value;
+        var json_data = JSON.parse(val);
+        document.getElementById("s6").innerHTML ='<input hidden type=text value='+json_data.caseid+' readonly  name=p1>';
+        document.getElementById("s1").innerHTML ='<input type=text value='+json_data.casename+' readonly >';
+        document.getElementById("s5").innerHTML ='<input type=text value='+json_data.sts+' readonly >';
+    }
+</script>
+            </form>
+{% endblock %}

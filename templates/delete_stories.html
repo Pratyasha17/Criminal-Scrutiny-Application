@@ -1,0 +1,30 @@
+{% extends 'staff_menu.html' %}
+{% block common %}
+    {% load static %}
+    <br><br>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table align="center"  class="table table-striped">
+        <tr><th style="text-align: center;color: red" colspan="4"><h2>Delete Story</h2></th></tr>
+                <tr>
+                    <th>Story Title</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Delete</th>
+                </tr>
+                {% for x in object_list %}
+                    <tr>
+                    <th>{{ x.story_title }}</th>
+                    <th>{{ x.Description }}</th>
+                    <th>
+                        <img src="{{ x.image.url }}" width="70" height="60" alt="No Iamge">
+                    </th>
+                    <th><a href="{% url 'delete_story' x.id %}">YES</a></th>
+                    </tr>
+                {% endfor %}
+
+        </table>
+</form>
+
+
+{% endblock %}

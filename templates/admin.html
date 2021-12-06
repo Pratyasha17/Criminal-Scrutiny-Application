@@ -1,0 +1,26 @@
+{% extends 'back.html' %}
+{% block common %}
+    {% load static %}
+    <br><br>
+
+<form action="/welcomeadmin/" method="post">
+     {% csrf_token %}
+
+ <table align="center" style="width: 10cm ;height: 7cm" class="table table-borderless table-dark">
+     <tr><th colspan="2"><h2 style="color: red" align="center">WELCOME DIRECTOR</h2></th></tr>
+     <tr><th>Enter User Name</th><th><input type="text" placeholder="Username" required name="name"></th></tr>
+     <tr><th>Enter Password</th><th><input type="password" placeholder="Password" required name="password"></th></tr>
+
+     <tr align="center"><th colspan="2">
+        <button  type="submit" class="btn btn-primary">Login</button>
+     </th></tr>
+     {% if messages %}
+         {% for x in messages %}
+     <tr><th colspan="2"><div class="alert alert-success" role="alert">
+        {{ x }}
+      </div></th></tr>
+         {% endfor %}
+     {% endif %}
+</table>
+</form>
+{% endblock %}

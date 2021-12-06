@@ -1,0 +1,13 @@
+{% extends 'staff_menu.html' %}
+{% block common %}
+{% load static %}
+    <br><br>
+    <h1 style="color: red;text-align: center;font-family: 'Comic Sans MS'" > Welcome {{ data.Username }} </h1>
+<table align="center" border="2">
+    <tr><th colspan="3"><h3> About </h3></th></tr>
+    <tr><th rowspan="4"><img  src="\media\{{ data.Photo }}" width="150" height="150"></th></tr>
+    <tr><th><h4>Name:</h4></th><th><h4>{{data.Username}}</h4></th></tr>
+    <tr><th><h4>Email Id:</h4></th><th><h4>{{ data.Email }}</h4></th></tr>
+    <tr><th><h4>Password:</h4></th><th><h4>******</h4></th></tr>
+</table>
+{% endblock %}

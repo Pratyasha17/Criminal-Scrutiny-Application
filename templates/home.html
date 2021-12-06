@@ -1,0 +1,35 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% load static %}
+      <br>
+    <center>
+      <div style="width: 20cm;text-align: center" id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="{% static 'images/wallpaperflare.com_wallpaper (3).jpg' %}" style="width:100px;height: 300px" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item ">
+      <img src="{% static 'images/wallpaperflare.com_wallpaper (4).jpg' %}" style="width:100px;height: 300px" class="d-block w-100" alt="...">
+    </div>
+      <div class="carousel-item ">
+      <img src="{% static 'images/wallpaperflare.com_wallpaper (5).jpg' %}" style="width:100px;height: 300px" class="d-block w-100" alt="...">
+    </div>
+      <div class="carousel-item ">
+      <img src="{% static 'images/cbi.jpeg' %}" style="width:100px;height: 300px"class="d-block w-100" alt="...">
+    </div>
+
+  </div>
+  </div>
+    </center>
+    <p>
+    <h5>
+       The Secret Intelligence Agency has always used
+                    undercover agents to solve complex cases and
+                     dismantle criminal organizations.
+                     We are conceptualizing this software as a solution so that Secret Intelligence
+                     Agencies and their agents can communicate through this Software
+                        for the exchange of evidences in a secure way.
+    </h5>
+    </p>
+
+{% endblock %}

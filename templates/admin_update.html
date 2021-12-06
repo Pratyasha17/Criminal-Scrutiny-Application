@@ -1,0 +1,15 @@
+{% extends 'sideindex.html' %}
+{% block common %}
+    {% load static %}
+    <br>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" style="width: 10cm ;height: 7cm" class="table table-borderless table-dark">
+        <tr><th style="color: red" colspan="2"><h2>Update Director</h2></th></tr>
+    <tr><th>{{ form }}</th></tr>
+     <tr align="center"><th colspan="2">
+        <button  type="submit" class="btn btn-primary">Update</button>
+     </th></tr>
+    </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'staff_menu.html' %}
+{% block common %}
+    {% load static %}
+    <br>
+    <form action="{% url 'updatejob' %}" method="post">
+    {% csrf_token %}
+    <table align="center" border="0">
+        <tr><th colspan="2" style="text-align: center;color: red"><h2>Update Vacancy</h2></th></tr>
+    {% for x in data %}
+        <tr>
+            <th>Job:</th><th><input type="text" readonly  name="job" required value="{{ x.Job }}"></th>
+        </tr>
+        <tr>
+            <th>Title:</th><th><input type="text" readonly name="name"required value="{{ x.Title }}"></th>
+        </tr>
+        <tr>
+            <th>Qualification:</th><th><input type="text" name="qualification" required value="{{ x.Qualification }}"></th>
+        </tr>
+        <tr>
+            <th>Experience:</th><th><input type="text"  name="exp"required value="{{ x.Experience }}"></th>
+        </tr>
+        <tr>
+            <th>Percentage:</th><th><input type="text"  required name="percentage" value="{{ x.Percentage }}"></th>
+        </tr>
+        <tr>
+            <th>Location:</th><th><input type="text"  required name="location" value="{{ x.Location }}"></th>
+        </tr>
+        <tr>
+            <th>Salary:</th><th><input type="text" min="10000" name="salary" required value="{{ x.Salary }}"></th>
+        </tr>
+
+    {% endfor %}
+    <tr><th colspan="2"><br><button type="submit" class="btn btn-success">Update</button></th> </tr>
+    </table>
+    </form>
+{% endblock %}

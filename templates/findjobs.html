@@ -1,0 +1,24 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% load static %}
+    <br><br>
+    <table>
+        <tr><th style="text-align: center;font-family: Georgia"><h3>Job Details</h3></th></tr>
+        <tr>
+            <td width="1000">
+                <table align="center" border="0" class="table table-striped">
+                 {% for x in object_list %}
+                <tr>
+                    <th width="300">Recruitment for {{ x.Job }}</th>
+                    <th><a href="{% url 'viewjobs' %}?j={{ x.Job }}">view</a></th>
+                    <th> <a href="{% url 'apply_job'%}?job={{x.Job}}">Apply</a></th>
+                </tr>
+                 {% endfor %}
+                </table>
+            </td>
+        </tr>
+</table>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+{% endblock %}

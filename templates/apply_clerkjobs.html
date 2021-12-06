@@ -1,0 +1,35 @@
+{% extends 'jobback.html' %}
+{% block common %}
+    {% load static %}
+{% for x in object_list %}
+ {% if 'clerk' in x.Job %}
+            <form action="/clerk_applicant/" method="post">
+        {% csrf_token %}
+             <table align="center" border="1">
+                <tr><th colspan="2" style="text-align: center">Clerk Application</th> </tr>
+                <tr><th>JOB_TITLE</th><th><select name="name">
+                      <option>Select</option>
+                    {% for x in object_list %}
+                        <option value="{{ x.Job}}">{{ x.Job }}</option>
+                    {% endfor %}
+
+                </select></th></tr>
+                <tr> <th>First Name</th>
+                    <th><input type="text" required name="fn"></th></tr>
+                <tr> <th>Last Name</th><th><input type="text" required name="ln"></th></tr>
+                <tr> <th>Date of Birth</th><th><input type="date" required name="dob"></th></tr>
+                <tr> <th>Qualification</th><th><input type="text" required name="quali"></th></tr>
+                <tr> <th>percentage</th><th><input type="number" required name="percentage"></th></tr>
+                <tr> <th>Institute</th><th><input type="text" required name="institute"></th></tr>
+                <tr> <th>Experience</th><th><input type="number" required name="exp"></th></tr>
+                <tr> <th>Contact Number</th><th><input type="number" required name="cno"></th></tr>
+                <tr><th colspan="2" style="text-align: center"><button type="submit">Submit</button></th></tr>
+            </table>
+             </td>
+                </tr>
+            </form>
+         {% else %}
+     <h1>Application is not available</h1>
+{% endif %}
+{% endfor %}
+{% endblock %}

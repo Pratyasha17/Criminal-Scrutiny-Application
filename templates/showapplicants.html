@@ -1,0 +1,45 @@
+{% extends 'staff_menu.html' %}
+{% block common %}
+    {% load static %}
+<br><br>
+
+                <table align="center" class="table table-striped" style="width: 40px">
+                <tr><th colspan="14" style="color: red"><h3>Applicant</h3></th> </tr>
+                <tr><th>JOB_TITLE</th>
+                 <th> Name</th>
+                 <th>Gender</th>
+                 <th>Dob</th>
+                 <th>Qualification</th>
+                <th>percentage</th>
+                 <th>Institute</th>
+                <th>Experience</th>
+                <th>Contact No.</th>
+                 <th>Email</th>
+                    <th>Status</th>
+                <th>Delete</th>
+                 <th>Status</th>
+                 <th>Send Mail</th>
+                </tr>
+                {% for x in data %}
+                    <tr>
+                 <th>{{ x.JOB_TITLE }}</th>
+                 <th>{{ x.Name }}</th>
+                 <th>{{x.Gender}}</th>
+                 <th>{{x.Dob}}</th>
+                 <th>{{x.Qualification}}</th>
+                 <th>{{ x.percentage}}</th>
+                 <th>{{ x.Institute}}</th>
+                 <th>{{ x.Experience}}</th>
+                 <th>{{ x.Contact_Number}}</th>
+                 <th>{{x.email  }}</th>
+                 <th>{{ x.status  }}</th>
+                        <th><a href="{% url 'delete_applicant' %}?j={{x.email }}"><img src="{% static 'images/delete.png' %}"width="30" height="30"></a></th>
+                        <th><a href="{% url 'approve_applicant' %}?j={{ x.email }}" ><img src="{% static 'images/check.png' %}" width="30" height="30"></a></th>
+                    <th><img src="{% static 'images/email.png' %}" width="30" height="30"></th>
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+{% endblock %}

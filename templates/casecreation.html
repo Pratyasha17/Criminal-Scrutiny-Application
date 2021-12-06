@@ -1,0 +1,27 @@
+{% extends 'sideindex_defence.html' %}
+{% block common %}
+    {% load static %}
+    <form action="/create_case/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table align="center" class="table table-striped" style="width: 20cm" >
+            <tr>  <th colspan="2" style="text-align: center;color: red"><h3>CASE CREATION</h3></th></tr>
+    <tr><th>Case Name</th>
+    <th><input type="text" required name="case name"></th></tr>
+    <tr><th>Date Of Creation </th>
+    <th><input type="date" required name="date"></th></tr>
+            <tr><th>File  </th>
+    <th><input type="file" required name="file"></th></tr>
+    <tr>
+    <th colspan="2" style="text-align: center"><br><button type="submit" class="btn btn-success">Create</button> </th>
+        {% if messages %}
+        {% for x in messages %}
+         <div class="alert alert-success" role="alert">
+        {{ x }}
+         </div>
+        {% endfor %}
+     {% endif %}
+    </tr>
+    </table>
+</form>
+
+{% endblock %}

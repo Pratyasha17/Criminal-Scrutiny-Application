@@ -1,0 +1,30 @@
+{% extends 'staff_menu.html' %}
+{% block common %}
+    {% load static %}<br>
+    <table>
+        <tr><th style="text-align: center;font-family: Georgia"><h3>Job Details</h3></th></tr>
+        <tr><th></th></tr>
+        <tr>
+            <td width="1000">
+                <table align="center" border="0"  class="table table-striped">
+                <tr>
+                    <th>Vacancy</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+                 {% for x in data %}
+                <tr>
+                    <th width="300">Recruitment for {{ x.Job }}</th>
+                    <th><a href="{% url 'deletepost'%}?id={{ x.Job }}"><img src="{% static 'images/delete.png' %}" width="50" height="50"></a></th>
+                    <th><a href="{% url 'updatepost'%}?id={{ x.Job }}" ><img src="{% static 'images/rotate.png' %}"width="50" height="50"></a></th>
+                </tr>
+                 {% endfor %}
+                {% if message %}
+                    {{ message }}
+                {% endif %}
+                </table>
+            </td>
+        </tr>
+</table>
+
+{% endblock %}

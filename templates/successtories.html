@@ -1,0 +1,28 @@
+{% extends 'staff_menu.html' %}
+{% block common %}
+    {% load static %}
+    <br><br><br>
+<form action="/succestories/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<table align="center" class="table table-dark" style="width: 20px;height: 30px">
+    <tr><th colspan="2" style="color: red"><h2>Add Success Stories</h2></th> </tr>
+    <tr><th>Story Title:</th><th><input type="text"  name="t1"></th></tr>
+    <tr><th>Description:</th><th><input type="text" name="t2"> </th></tr>
+    <tr><th>Image:</th><th><input type="file" name="t3"> </th></tr>
+    <tr><th><button type="submit"class="btn btn-success"> Add  </button> </th>
+        <th style="text-align: center"><a  style="color: white" href="/delete_success/" class="btn btn-danger">Delete Stories</a></th>
+    </tr>
+    {% if messages %}
+        {% for x in messages %}
+     <tr><th colspan="2"><div class="alert alert-success" role="alert" >
+        {{ x }}
+      </div></th></tr>
+        {% endfor %}
+     {% endif %}
+</table>
+    <br><br>
+</form>
+
+
+{% endblock %}

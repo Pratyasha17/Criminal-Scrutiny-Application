@@ -1,0 +1,46 @@
+{% extends 'sideindex.html' %}
+{% block common %}
+    {% load static %}
+    {% if messages %}
+         {% for x in messages %}
+     <tr><th colspan="2"><div class="alert alert-success" role="alert">
+            {{ x }}
+      </div></th></tr>
+         {% endfor %}
+     {% endif %}
+
+    <table align="center" class="table table-striped" >
+    <tr><th colspan="8" style="color: red"><h2>Agent Information</h2></th></tr>
+
+      <tr>
+      <th>Agent name</th>
+      <th>DOB</th>
+      <th>CNO</th>
+      <th>Qualification</th>
+      <th>Address</th>
+      <th>Update</th>
+      <th>Delete</th>
+</tr>
+
+{% for x in data %}
+  <tr>
+    <th><input type="text" value="{{ x.Agent_Name }}" name="name" readonly></th>
+    <th><input type="text" value="{{ x.Dob }}" name="dateofbirth" required readonly></th>
+    <th><input type="number" value="{{ x.Contact_Number }}" name="cno" required readonly></th>
+    <th><input type="text" value="{{ x.Qualification }}" name="quali" required readonly></th>
+    <th><input type="text" value="{{ x.Address }}" name="adress" required readonly></th>
+    <td>
+            <a href="/update{{ x.agent_id }}/"><img src="{% static 'images/rotate.png' %}" width="50" height="50"></a>
+
+    </td>
+    <td>
+            <a href="{% url 'delete_agent'%}?id={{x.id}}"><img src="{% static 'images/delete.png' %}" width="50" height="50"></a>
+
+    </td>
+    </tr>
+{% endfor %}
+
+
+</table>
+
+{% endblock %}

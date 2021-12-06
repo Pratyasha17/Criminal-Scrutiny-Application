@@ -1,0 +1,37 @@
+{% extends 'sideindex.html' %}
+{% block common %}
+    {% load static %}
+<br><br><br>
+            <h1 style="color: red;text-align: center;font-family: 'Comic Sans MS'" > Welcome to Director</h1>
+    <br><br><br>
+    <table align="center" >
+        {% for x in data %}
+       <tr><th rowspan="5"><img src="{{ x.photo.url }}" width="150" height="150"></th></tr>
+       <tr>
+           <th>Name:Akash Gupta</th>
+       </tr>
+       <tr>
+           <th>Username:{{ x.username }}</th>
+       </tr>
+       <tr>
+           <th>Password:*******</th>
+       </tr>
+        <tr>
+           <th>Department:{{ x.department }}</th>
+       </tr>
+       <tr><th colspan="2" style="text-align: right">
+           <a href="{% url 'update_data' x.id %}">
+           Update
+            </a>
+       </th></tr>
+    {% endfor %}
+    {% if messages %}
+         {% for x in messages %}
+     <tr><th colspan="2"><div class="alert alert-success" role="alert">
+        {{ x }}
+      </div></th></tr>
+         {% endfor %}
+     {% endif %}
+    </table>
+
+{% endblock %}

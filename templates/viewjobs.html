@@ -1,0 +1,28 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% load static %}
+    <table align="center" border="1">
+                <tr> <th>Job</th>
+                    <th>Title</th>
+                    <th>Qualification</th>
+                    <th>Percentage</th>
+                    <th>Experience</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                </tr>
+
+                       {% for x in data %}
+                     <tr>
+    <th>{{ x.Job }}</th>
+    <th>{{ x.Title }}</th>
+    <th>{{ x.Qualification }}</th>
+    <th>{{ x.Percentage }}</th>
+    <th>{{ x.Experience }}</th>
+    <th>{{ x.Location }}</th>
+    <th>{{ x.Salary}}</th>
+                   </tr>
+                     {% endfor %}
+
+    </table>
+
+{% endblock %}

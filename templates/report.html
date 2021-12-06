@@ -1,0 +1,30 @@
+{% extends 'agentcommon.html' %}
+{% block common %}
+    {% load static %}
+    <br><br><br>
+    <table align="center" class="table table-striped" style="width: 20cm">
+    <tr><th colspan="6" style="color: red;text-align: center"><h2>Reports</h2></th></tr>
+    <tr>
+        <th>Agent Id</th>
+        <th>Case Id</th>
+        <th> Case Name</th>
+        <th>Evidence</th>
+        <th>Image</th>
+        <th>Status</th>
+    </tr>
+    {% for x in data %}
+        <tr>
+        <th>{{ x.agent_id }}</th>
+        <th>{{ x.case_id }}</th>
+        <th>{{ x.case_name }}</th>
+        <th>{{ x.evidence }}</th>
+        <th>
+            <img src="{{ x.image.url }}" width="40" height="40">
+        </th>
+        <th>{{ x.status }}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

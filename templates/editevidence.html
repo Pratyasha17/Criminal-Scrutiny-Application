@@ -1,0 +1,13 @@
+{% extends 'agentcommon.html' %}
+{% block common %}
+    {% load static %}
+    <br>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" class="table table-striped" style="width: 15cm">
+        <tr><th colspan="2" style="color: red;text-align: center"><h2>Update Evidence</h2></th> </tr>
+        <tr><th width="200">{{ form }}</th></tr>
+        <tr><th colspan="2" style="text-align: center"> <button type="submit" class="btn btn-success">Update</button> </th></tr>
+    </table>
+</form>
+{% endblock %}
